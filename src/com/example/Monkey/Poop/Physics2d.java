@@ -47,9 +47,6 @@ public class Physics2d extends Activity
     // Turn off app title
     requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-    //getWindow().setFlags(
-    //WindowManager.LayoutParams.NO_STATUS_BAR_FLAG,
-    //WindowManager.LayoutParams.NO_STATUS_BAR_FLAG);
     getWindow().setFlags(
         WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -103,53 +100,11 @@ class MyRenderer implements Renderer
     Texture.setGlContext(gl);
     ResourceLoadingTools.setApplication(application);
 
-    //    if(apk_file == null)
-    //    {
-    //
-    //      apk_file = getAPKFilePath();
-    //      if(apk_file == null)
-    //      {
-    //
-    //        Log.e("ERROR", "Problem grabbing APK file\n");
-    //        throw new RuntimeException("APK file for this app not found!\n");
-    //      }
-    //    }
-
     initializeGL();
 
   }
 
-  public String getAPKFilePath()
-  {
-
-    if(application == null)
-    {
-
-      throw new RuntimeException("Application given to Renderer was null!");
-    }
-
-		// return apk file path (or null on error)
-		String apkFilePath = null;
-		ApplicationInfo appInfo = null;
-		PackageManager packMgmr = application.getPackageManager();
-
-		try 
-    {
-
-	    appInfo = packMgmr.getApplicationInfo("com.example.Monkey.Poop.Physics2d", 0);
-    } 
-    catch (NameNotFoundException e) 
-    {
-
-	    e.printStackTrace();
-	    throw new RuntimeException("Unable to locate assets, aborting...");
-    }
-
-		apkFilePath = appInfo.sourceDir;
-    //nativeInit(apkFilePath);
-
-    return apkFilePath;
-  }
+  
 
   @Override
   public void onSurfaceChanged(GL10 gl, int width, int height)
@@ -165,13 +120,6 @@ class MyRenderer implements Renderer
     gl.glMatrixMode(GL10.GL_PROJECTION);
     gl.glLoadIdentity();
     float aspect = (float)width / (float)height;
-
-    //gl.glOrthof(-10.0f * aspect, 10.0f * aspect, -10.0f, 10.0f, 0.1f, 10.0f);
-    //gl.glOrthof(-10.0f , 10.0f , -10.0f, 10.0f, 0.1f, 10.0f);
-    //GLU.gluOrtho2D(gl, 0.0f, (float)width,  0.0f, (float)height);
-    //GLU.gluOrtho2D(gl, 0.0f, 10.0f, 0.0f, 10.0f);
-    //gl.glOrthof(0.0f , 10.0f , 0.0f, 10.0f, -1f, 1f);
-    //gluPerspective(45.0f, (float)w / (float)h, 0.1f, 100.0f);
 
     gl.glMatrixMode(GL10.GL_MODELVIEW);
     gl.glLoadIdentity();
@@ -193,9 +141,5 @@ class MyRenderer implements Renderer
   private native void initializeGL();
   private native void resizeGL(int w, int h);
   private native void paintGL();
-
-  //private static native void nativeInit(String apkPath);
-  //	private static native void nativeResize(int w, int h);
-  //	private static native void nativeRender();
 
 }
