@@ -1,0 +1,13 @@
+#!/bin/bash
+# CODE_TAGS is set up in vimrc file as:
+#    set tags+=$CODE_TAGS
+
+export "CODE_TAGS=$HOME/.vim/ctags/android_java";  \
+		vim  src/com/example/Monkey/Poop/*.java \
+			jni/*.cpp \
+			jni/*.h \
+			jni/Box2D/*/*.cpp
+
+
+
+
