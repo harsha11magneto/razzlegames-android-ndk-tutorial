@@ -56,7 +56,6 @@ void Renderer::drawFrame()
 
   };
 
-
   glPushMatrix();
   glVertexPointer(2, GL_FLOAT, 0, verts);
   glColor4f(1.0f,1.0f,1.0f,1.0f);
