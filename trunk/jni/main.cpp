@@ -4,7 +4,6 @@
 #include <new>
 #include <zip.h>
 #include "def.h"
-#include "utils.h"
 #include "GLHelpers.h"
 
 #include "Texture.h"
