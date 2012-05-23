@@ -12,74 +12,74 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-LOCAL_PATH := $(call my-dir)
+
 include $(CLEAR_VARS)
 TARGET_ABI      := android-4-armeabi 
 
-LOCAL_CFLAGS := \
-								-g3 \
-								-ggdb \
-								-DANDROID_NDK \
-								-gstabs+ \
+LIBZIP_PATH = libzip/
 
+LOCAL_CFLAGS := \
+	-g3 \
+	-ggdb \
+	-DANDROID_NDK \
+	-gstabs+ \
 
 LOCAL_MODULE    := libzip
 LOCAL_SRC_FILES :=\
-	zip_add.c \
-	zip_add_dir.c \
-	zip_close.c \
-	zip_delete.c \
-	zip_dirent.c \
-	zip_entry_free.c \
-	zip_entry_new.c \
-	zip_err_str.c \
-	zip_error.c \
-	zip_error_clear.c \
-	zip_error_get.c \
-	zip_error_get_sys_type.c \
-	zip_error_strerror.c \
-	zip_error_to_str.c \
-	zip_fclose.c \
-	zip_file_error_clear.c \
-	zip_file_error_get.c \
-	zip_file_get_offset.c \
-	zip_file_strerror.c \
-	zip_filerange_crc.c \
-	zip_fopen.c \
-	zip_fopen_index.c \
-	zip_fread.c \
-	zip_free.c \
-	zip_get_archive_comment.c \
-	zip_get_archive_flag.c \
-	zip_get_file_comment.c \
-	zip_get_num_files.c \
-	zip_get_name.c \
-	zip_memdup.c \
-	zip_name_locate.c \
-	zip_new.c \
-	zip_open.c \
-	zip_rename.c \
-	zip_replace.c \
-	zip_set_archive_comment.c \
-	zip_set_archive_flag.c \
-	zip_set_file_comment.c \
-	zip_source_buffer.c \
-	zip_source_file.c \
-	zip_source_filep.c \
-	zip_source_free.c \
-	zip_source_function.c \
-	zip_source_zip.c \
-	zip_set_name.c \
-	zip_stat.c \
-	zip_stat_index.c \
-	zip_stat_init.c \
-	zip_strerror.c \
-	zip_unchange.c \
-	zip_unchange_all.c \
-	zip_unchange_archive.c \
-	zip_unchange_data.c
+	$(LIBZIP_PATH)/zip_add.c \
+	$(LIBZIP_PATH)/zip_add_dir.c \
+	$(LIBZIP_PATH)/zip_close.c \
+	$(LIBZIP_PATH)/zip_delete.c \
+	$(LIBZIP_PATH)/zip_dirent.c \
+	$(LIBZIP_PATH)/zip_entry_free.c \
+	$(LIBZIP_PATH)/zip_entry_new.c \
+	$(LIBZIP_PATH)/zip_err_str.c \
+	$(LIBZIP_PATH)/zip_error.c \
+	$(LIBZIP_PATH)/zip_error_clear.c \
+	$(LIBZIP_PATH)/zip_error_get.c \
+	$(LIBZIP_PATH)/zip_error_get_sys_type.c \
+	$(LIBZIP_PATH)/zip_error_strerror.c \
+	$(LIBZIP_PATH)/zip_error_to_str.c \
+	$(LIBZIP_PATH)/zip_fclose.c \
+	$(LIBZIP_PATH)/zip_file_error_clear.c \
+	$(LIBZIP_PATH)/zip_file_error_get.c \
+	$(LIBZIP_PATH)/zip_file_get_offset.c \
+	$(LIBZIP_PATH)/zip_file_strerror.c \
+	$(LIBZIP_PATH)/zip_filerange_crc.c \
+	$(LIBZIP_PATH)/zip_fopen.c \
+	$(LIBZIP_PATH)/zip_fopen_index.c \
+	$(LIBZIP_PATH)/zip_fread.c \
+	$(LIBZIP_PATH)/zip_free.c \
+	$(LIBZIP_PATH)/zip_get_archive_comment.c \
+	$(LIBZIP_PATH)/zip_get_archive_flag.c \
+	$(LIBZIP_PATH)/zip_get_file_comment.c \
+	$(LIBZIP_PATH)/zip_get_num_files.c \
+	$(LIBZIP_PATH)/zip_get_name.c \
+	$(LIBZIP_PATH)/zip_memdup.c \
+	$(LIBZIP_PATH)/zip_name_locate.c \
+	$(LIBZIP_PATH)/zip_new.c \
+	$(LIBZIP_PATH)/zip_open.c \
+	$(LIBZIP_PATH)/zip_rename.c \
+	$(LIBZIP_PATH)/zip_replace.c \
+	$(LIBZIP_PATH)/zip_set_archive_comment.c \
+	$(LIBZIP_PATH)/zip_set_archive_flag.c \
+	$(LIBZIP_PATH)/zip_set_file_comment.c \
+	$(LIBZIP_PATH)/zip_source_buffer.c \
+	$(LIBZIP_PATH)/zip_source_file.c \
+	$(LIBZIP_PATH)/zip_source_filep.c \
+	$(LIBZIP_PATH)/zip_source_free.c \
+	$(LIBZIP_PATH)/zip_source_function.c \
+	$(LIBZIP_PATH)/zip_source_zip.c \
+	$(LIBZIP_PATH)/zip_set_name.c \
+	$(LIBZIP_PATH)/zip_stat.c \
+	$(LIBZIP_PATH)/zip_stat_index.c \
+	$(LIBZIP_PATH)/zip_stat_init.c \
+	$(LIBZIP_PATH)/zip_strerror.c \
+	$(LIBZIP_PATH)/zip_unchange.c \
+	$(LIBZIP_PATH)/zip_unchange_all.c \
+	$(LIBZIP_PATH)/zip_unchange_archive.c \
+	$(LIBZIP_PATH)/zip_unchange_data.c
 
 LOCAL_LDLIBS := -lz
 
-#include $(BUILD_SHARED_LIBRARY)
 include $(BUILD_STATIC_LIBRARY)

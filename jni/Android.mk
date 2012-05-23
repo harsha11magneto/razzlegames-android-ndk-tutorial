@@ -2,19 +2,18 @@ LOCAL_PATH := $(call my-dir)
 MY_PATH := $(LOCAL_PATH)
 TARGET_ABI      := android-4-armeabi 
 
-#LOCAL_JNI_SHARED_LIBRARIES := \
-#	libzip \
-#	libpng \
-#	libBox2D \
+#include $(call all-subdir-makefiles)
 
-include $(call all-subdir-makefiles)
+include jni/libpng/Android.mk
+include jni/Box2D/Android.mk
+include jni/libzip/Android.mk
 
 include $(CLEAR_VARS)
-LOCAL_PATH := $(MY_PATH)
 
 LOCAL_MODULE    := libmain
 
 LOCAL_C_INCLUDES := \
+	Box2D \
 	$(LOCAL_PATH)/Box2D \
 	$(LOCAL_PATH)/libpng \
 	$(LOCAL_PATH)/libzip \
@@ -34,11 +33,12 @@ LOCAL_CFLAGS := \
 #---------------------------------------------------------
 MY_PREFIX := $(LOCAL_PATH)/../
 MY_LOCAL_SRC_FILES := \
-	$(wildcard $(LOCAL_PATH)/*.cpp)
+	$(wildcard $(MY_PATH)/*.cpp)
 
 # This fixes the problem!
 LOCAL_SRC_FILES := \
 	$(subst jni/, , $(MY_LOCAL_SRC_FILES))
+#$(MY_LOCAL_SRC_FILES)
 
 LOCAL_LDLIBS := -lGLESv1_CM -llog -lz 
 LOCAL_STATIC_LIBRARIES := libBox2D libzip libpng
