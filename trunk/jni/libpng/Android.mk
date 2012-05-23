@@ -11,8 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-LOCAL_PATH := $(call my-dir)
+
+LIBPNG_PATH := libpng/
 include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := \
@@ -21,26 +21,24 @@ LOCAL_CFLAGS := \
 								-gstabs+ \
 								-DANDROID_NDK \
 
-
 LOCAL_MODULE    := libpng
 LOCAL_SRC_FILES :=\
-	png.c \
-	pngerror.c \
-	pngget.c \
-	pngmem.c \
-	pngpread.c \
-	pngread.c \
-	pngrio.c \
-	pngrtran.c \
-	pngrutil.c \
-	pngset.c \
-	pngtrans.c \
-	pngwio.c \
-	pngwrite.c \
-	pngwtran.c \
-	pngwutil.c 
-	
-LOCAL_LDLIBS := -lz
+	$(LIBPNG_PATH)png.c \
+	$(LIBPNG_PATH)pngerror.c \
+	$(LIBPNG_PATH)pngget.c \
+	$(LIBPNG_PATH)pngmem.c \
+	$(LIBPNG_PATH)pngpread.c \
+	$(LIBPNG_PATH)pngread.c \
+	$(LIBPNG_PATH)pngrio.c \
+	$(LIBPNG_PATH)pngrtran.c \
+	$(LIBPNG_PATH)pngrutil.c \
+	$(LIBPNG_PATH)pngset.c \
+	$(LIBPNG_PATH)pngtrans.c \
+	$(LIBPNG_PATH)pngwio.c \
+	$(LIBPNG_PATH)pngwrite.c \
+	$(LIBPNG_PATH)pngwtran.c \
+	$(LIBPNG_PATH)pngwutil.c 
 
+	
 #include $(BUILD_SHARED_LIBRARY)
 include $(BUILD_STATIC_LIBRARY)
