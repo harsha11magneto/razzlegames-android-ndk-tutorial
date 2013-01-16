@@ -32,12 +32,12 @@ $(PROJECT_BUILD_FILES):
 $(DEBUG_TARGET): $(PROJECT_BUILD_FILES) force
 	$(MAKE) tags
 	ndk-build $(NDK_DEBUG_FLAGS) 
-	ant debug
+	ant $(ANT_FLAGS) debug
 
 $(RELEASE_TARGET): force
 	$(MAKE) tags
 	ndk-build $(NDK_RELEASE_FLAGS) 
-	ant release
+	ant $(ANT_FLAGS) release
 
 run: install
 
@@ -77,7 +77,6 @@ tags: $(JAVA_FILES) $(CPP_FILES)
 	  --fields=+iaKsS --extra=+q \
 		--c++-kinds=+p \
 		./src/ ./
-
 
 #/usr/lib/jvm/java-6-sun/com/sun/org/apache/xerces/
 
